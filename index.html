@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Komisyon Hesaplayıcı</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>POS Komisyon Hesaplayıcı</h1>
+
+<div class="modes">
+
+<button onclick="setMode('netToCard')" class="active" id="btn1">
+Net ➜ Kart
+</button>
+
+<button onclick="setMode('cardToNet')" id="btn2">
+Kart ➜ Net
+</button>
+
+<button onclick="setMode('cashFee')" id="btn3">
+Nakit Komisyon
+</button>
+
+</div>
+
+
+<div class="card">
+
+<label>Tutar</label>
+<input id="amount" type="number" value="100">
+
+<label>Komisyon %</label>
+<input id="rate" type="number" value="5.7">
+
+<button class="calculate" onclick="calculate()">
+Hesapla
+</button>
+
+</div>
+
+
+<div class="result">
+
+<h2>Sonuç</h2>
+
+<div class="box">
+<p id="label1">Karttan Çekilecek</p>
+<h3 id="value1">106.04 ₺</h3>
+</div>
+
+<div class="box">
+<p id="label2">Komisyon</p>
+<h3 id="value2">6.04 ₺</h3>
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+if("serviceWorker" in navigator){
+navigator.serviceWorker.register("service-worker.js");
+}
+</script>
+
+</body>
+</html>
